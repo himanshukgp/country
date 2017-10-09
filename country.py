@@ -11,5 +11,8 @@ soup = BeautifulSoup(html)
 tables = soup.findAll("table")
 
 for table in tables:
-     if table.findParent("table") is None:
-         print (str(table))
+	for row in table.findAll('tr'):
+		for cell in row.findAll('td'):
+			print(cell.text)
+
+
